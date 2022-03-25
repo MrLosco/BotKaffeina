@@ -248,6 +248,30 @@ client.on("messageCreate", message => {
 
         message.channel.send("Queue stoppata")
     }
+
+    if (!message.content.startsWith(!repeat)) return;
+    const args = message.content.slice(!repeat.length).trim().split(/ +/g);
+    const command = args.shift();
+    if (command == "repeat") {
+        let mode = distube.setRepeatMode(message, parseInt(args[0]));
+        mode = mode ? mode == 2 ? "Ripeti lista" : "Ripeti traccia" : "Off";
+        message.channel.send("imposta modalità ripeti `" + mode + "`");
+    }
+
+    const { RepeatMode } = require("distube");
+    let mode;
+    switch(distube.setRepeatMode(message, parseInt(args[0]))) {
+    case RepeatMode.DISABLED:
+        mode = "Off";
+        break;
+    case RepeatMode.SONG:
+        mode = "Ripeti una traccia";
+        break;
+    case RepeatMode.QUEUE:
+        mode = "Ripeti lista";
+        break;
+}
+message.channel.send("imposta modalità ripeti `" + mode + "`");
 })
 
 distube.on("addSong", (queue, song) => {
