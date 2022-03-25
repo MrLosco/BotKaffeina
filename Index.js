@@ -22,7 +22,7 @@ const distube = new DisTube(client, {
 })
 
 client.on("messageCreate", message => {
-    if (message.content.startsWith(".play")) {
+    if (message.content.startsWith("!play")) {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
