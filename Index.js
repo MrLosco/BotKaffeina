@@ -275,8 +275,8 @@ function oraAttuale() {
     var hour = new Date().getHours();
     var minutes = new Date().getMinutes();
 
-    var canale = client.channels.cache.get("949783943304073299")
-    if (hour == 10 && minutes == 03) {
+    var canale = client.channels.cache.get("949783943304073299");
+    if (hour == 10 && minutes == 10) {
         canale.send("Buon giorno gente @everyone")
     }
 }
