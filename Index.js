@@ -22,7 +22,7 @@ const distube = new DisTube(client, {
 })
 
 client.on("messageCreate", message => {
-    if (message.content.startsWith("!play")) {
+    if (message.content.startsWith(".play")) {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -47,7 +47,7 @@ client.on("messageCreate", message => {
         })
     }
 
-    if (message.content == "!pause") {
+    if (message.content == ".pause") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -68,7 +68,7 @@ client.on("messageCreate", message => {
         message.channel.send("Canzone in pausa")
     }
 
-    if (message.content == "!resume") {
+    if (message.content == ".resume") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -89,7 +89,7 @@ client.on("messageCreate", message => {
         message.channel.send("Canzone ripresa")
     }
 
-    if (message.content == "!queue") {
+    if (message.content == ".queue") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -186,7 +186,7 @@ client.on("messageCreate", message => {
             })
     }
 
-    if (message.content == "!skip") {
+    if (message.content == ".skip") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -207,7 +207,7 @@ client.on("messageCreate", message => {
         message.channel.send("Canzone cambiata")
     }
 
-    if (message.content == "!previous") {
+    if (message.content == ".previous") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -228,7 +228,7 @@ client.on("messageCreate", message => {
         message.channel.send("Traccia precedente")
     }
 
-    if (message.content == "!stop") {
+    if (message.content == ".stop") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
