@@ -248,6 +248,16 @@ client.on("messageCreate", message => {
 
         message.channel.send("Queue stoppata")
     }
+
+    if (message.content == ".repeat") {
+        const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift();
+    if (command == "repeat") {
+        let mode = distube.setRepeatMode(message, parseInt(args[0]));
+        mode = mode ? mode == 2 ? "Repeat queue" : "Repeat song" : "Off";
+        message.channel.send("Set repeat mode to `" + mode + "`");
+    }
+    }
 })
 
 distube.on("addSong", (queue, song) => {
