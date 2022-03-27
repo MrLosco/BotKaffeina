@@ -269,5 +269,15 @@ distube.on("playSong", (queue, song) => {
 
 distube.on("searchNoResult", (message, query) => {
     message.channel.send("Canzone non trovata")
-})
+});
 
+function oraAttuale(){
+    var hour = new Date().getHours();
+    var minutes = new Date().getMinutes();
+
+    var canale = client.channels.cache.get("949783943304073299")
+    if(hour == 9 && minute == 34) {
+        canale.send("Buon giorno gente @everyone")
+    }
+}
+setInterval(oraAttuale, 1000*60)
