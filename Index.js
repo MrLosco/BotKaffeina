@@ -271,12 +271,12 @@ distube.on("searchNoResult", (message, query) => {
     message.channel.send("Canzone non trovata")
 });
 
-function oraAttuale(){
+function oraAttuale() {
     var hour = new Date().getHours();
     var minutes = new Date().getMinutes();
 
     var canale = client.channels.cache.get("949783943304073299")
-    if(hour == 09 && minute == 38) {
+    if(hour == 09 && minutes == 43) {
         canale.send("Buon giorno gente @everyone")
     }
 }
