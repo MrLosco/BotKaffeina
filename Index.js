@@ -271,3 +271,23 @@ distube.on("searchNoResult", (message, query) => {
     message.channel.send("Canzone non trovata")
 })
 
+function oraAttuale() {
+    var hour = new Date().getHours();
+    var minutes = new Date().getMinutes();
+
+    var canale = client.channels.cache.get("949783943304073299");
+    if (hour == 06 && minutes == 30) {
+        canale.send("Buon giorno gente @everyone")
+    }
+    if (hour == 10 && minutes == 0) {
+        canale.send("Buon pranzo @everyone")
+    }
+    if (hour == 17 && minutes == 30) {
+        canale.send("Buona cena @everyone")
+    }
+    if (hour == 21 && minutes == 30) {
+        canale.send("Buonanotte ragazzuoli @everyone")
+    }
+}
+setInterval(oraAttuale, 1000 * 60)
+
