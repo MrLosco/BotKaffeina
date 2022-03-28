@@ -22,7 +22,7 @@ const distube = new DisTube(client, {
 })
 
 client.on("messageCreate", message => {
-    if (message.content.startsWith(".play")) {
+    if (message.content.startsWith("!play")) {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -47,7 +47,7 @@ client.on("messageCreate", message => {
         })
     }
 
-    if (message.content == ".pause") {
+    if (message.content == "!pause") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -68,7 +68,7 @@ client.on("messageCreate", message => {
         message.channel.send("Canzone in pausa")
     }
 
-    if (message.content == ".resume") {
+    if (message.content == "!resume") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -89,7 +89,7 @@ client.on("messageCreate", message => {
         message.channel.send("Canzone ripresa")
     }
 
-    if (message.content == ".queue") {
+    if (message.content == "!queue") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -113,7 +113,6 @@ client.on("messageCreate", message => {
                 songsList += `${i + 1}. **${queue.songs[i].name.length <= 100 ? queue.songs[i].name : `${queue.songs[i].name.slice(0, 100)}...`}** - ${queue.songs[i].formattedDuration}\r`
             }
         }
-    }    
 
         let embed = new Discord.MessageEmbed()
             .addField("Queue", songsList)
@@ -185,8 +184,9 @@ client.on("messageCreate", message => {
                     msg.edit({ embeds: [embed], components: [row] })
                 })
             })
-    
-    if (message.content == ".skip") {
+    }
+
+    if (message.content == "!skip") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -207,7 +207,7 @@ client.on("messageCreate", message => {
         message.channel.send("Canzone cambiata")
     }
 
-    if (message.content == ".previous") {
+    if (message.content == "!previous") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -228,7 +228,7 @@ client.on("messageCreate", message => {
         message.channel.send("Traccia precedente")
     }
 
-    if (message.content == ".stop") {
+    if (message.content == "!stop") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -249,7 +249,7 @@ client.on("messageCreate", message => {
         message.channel.send("Queue stoppata")
     }
 })
-    
+
 distube.on("addSong", (queue, song) => {
     let embed = new Discord.MessageEmbed()
         .setTitle("Traccia aggiunta")
@@ -269,24 +269,5 @@ distube.on("playSong", (queue, song) => {
 
 distube.on("searchNoResult", (message, query) => {
     message.channel.send("Canzone non trovata")
-});
+})
 
-function oraAttuale() {
-    var hour = new Date().getHours();
-    var minutes = new Date().getMinutes();
-
-    var canale = client.channels.cache.get("949783943304073299");
-    if (hour == 06 && minutes == 30) {
-        canale.send("Buon giorno gente @everyone")
-    }
-    if (hour == 10 && minutes == 0) {
-        canale.send("Buon pranzo @everyone")
-    }
-    if (hour == 17 && minutes == 30) {
-        canale.send("Buona cena @everyone")
-    }
-    if (hour == 21 && minutes == 30) {
-        canale.send("Buonanotte ragazzuoli @everyone")
-    }
-}
-setInterval(oraAttuale, 1000 * 60)
