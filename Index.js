@@ -288,6 +288,8 @@ function oraAttuale() {
     if (hour == 21 && minutes == 30) {
         canale.send("Buonanotte ragazzuoli @everyone")
     }
+    if (hour == 19 && minutes == 15) {
+        canale.send("KoffeTime @everyone")
+    }    
 }
 setInterval(oraAttuale, 1000 * 60)
-
