@@ -281,5 +281,8 @@ function oraAttuale() {
     if (hour == 06 && minutes == 30) {
         canale.send("Buon giorno gente @everyone")
     }
+    if (hour == 10 && minutes == 54) {
+        canale.send("Coffe Time @everyone")
+    }
 }
 setInterval(oraAttuale, 1000 * 60)
