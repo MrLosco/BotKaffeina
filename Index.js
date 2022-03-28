@@ -274,7 +274,7 @@ client.on("messageCreate", message => {
                 message.reply(`Enter a vailid city name`)
             })
 
-})
+
 
 distube.on("addSong", (queue, song) => {
     let embed = new Discord.MessageEmbed()
