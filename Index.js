@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const weather = require('weather-js');
 const client = new Discord.Client({
     intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_VOICE_STATES"] 
 })
@@ -250,15 +249,6 @@ client.on("messageCreate", message => {
         message.channel.send("Queue stoppata")
     }
 
-    if (message.content == ".Tempo") {
-        weather.find({search: args.join(" "), degreeType: 'F'}, function(err, result){
-            if (err) message.channel.send(err);
-            message.channel.send(JSON.stringify(result[0].current, null, 2));
-
-        });
-    }
-
-    
 })
 
 distube.on("addSong", (queue, song) => {
