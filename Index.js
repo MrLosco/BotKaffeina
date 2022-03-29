@@ -21,13 +21,6 @@ const distube = new DisTube(client, {
     leaveOnStop: true
 })
 
-var embed = new Discord.MessageEmbed()
-    .setColor("#ff0000")
-    .setTitle("Lista Canali")
-    .setDescription("OmegaClick", "https://www.youtube.com/c/OmegaClick6", "https://www.youtube.com/c/OmegaClick6")
-
-
-
 client.on("messageCreate", message => {
     if (message.content.startsWith(".play")) {
         const voiceChannel = message.member.voice.channel
@@ -258,10 +251,6 @@ client.on("messageCreate", message => {
 
     if (message.content == "!omega") {
         message.channel.send("Questo è il canale di OmegaClick: https://www.youtube.com/c/OmegaClick6")
-    }
-
-    if (message.content == "!comando") {
-        message.channel.send(embed)
     }
 
 })
