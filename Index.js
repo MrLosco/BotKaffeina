@@ -296,3 +296,12 @@ function oraAttuale() {
     }    
 }
 setInterval(oraAttuale, 1000 * 60)
+
+client.on("guildMemberAdd", member => {
+    if (member.user.bot) return
+    var embed = new Discord.MessageEmbed()
+        .setTitle("WELCOME")
+        .setDescription(`Ciao ${member.toString()}, benvenuto in ${member.guild.name}. Sei il **${member.guild.memberCount}° Membro**`)
+
+    client.channels.cache.get("954115113219145800").send({embeds: [embed]}); 
+})
