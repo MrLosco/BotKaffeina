@@ -249,8 +249,8 @@ client.on("messageCreate", message => {
         message.channel.send("Queue stoppata")
     }
 
-    if (message.content == "!omega") {
-        message.channel.send("Questo è il canale di OmegaClick: https://www.youtube.com/c/OmegaClick6")
+    if (message.content == "!link") {
+        message.channel.send("Lista canali o pagine: https://www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA")
     }
 
 })
