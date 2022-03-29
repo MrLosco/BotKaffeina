@@ -250,10 +250,15 @@ client.on("messageCreate", message => {
     }
 
     if (message.content == "!link") {
-        message.channel.send("Lista canali o pagine: https://www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA")
-    }
+        let embed = new Discord.MessageEmbed()
+        .setColor('DARK_GREY')
+        .setTitle('Lista canali o Paggine')
+        .setDescription()
+        .setURL("https//www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA")
+        message.channel.send({ embeds: [embed]}
+    )
 
-})
+
 
 distube.on("addSong", (queue, song) => {
     let embed = new Discord.MessageEmbed()
