@@ -249,16 +249,15 @@ client.on("messageCreate", message => {
         message.channel.send("Queue stoppata")
     }
 
-    if (message.content == "!link") {
-        let embed = new Discord.MessageEmbed()
-        .setColor('DARK_GREY')
-        .setTitle('Lista canali o Paggine')
-        .setDescription()
-        .setURL("https//www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA")
-        message.channel.send({ embeds: [embed]}
-    )
+    if (message.content == ".link") {
+        message.channel.send("Lista Canali o Pagine: https://www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA")
+    }
 
+    if (message.cont == ".help") {
+        message.channel.send("Lista dei comandi: \n .play \n .stop \n .pause \n .resume \n .queue \n .skip \n .previous \n .link")
+    }
 
+})
 
 distube.on("addSong", (queue, song) => {
     let embed = new Discord.MessageEmbed()
@@ -297,6 +296,9 @@ function oraAttuale() {
     }
     if (hour == 21 && minutes == 30) {
         canale.send("Buonanotte ragazzuoli @everyone")
+    }
+    if (hour == 19 && minutes == 15) {
+        canale.send("KoffeTime @everyone")
     }
     if (hour == 11 && minutes == 0) {
         canale.send("Buon pranzo <@625643719848230922>")
