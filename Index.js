@@ -253,8 +253,8 @@ client.on("messageCreate", message => {
         message.channel.send("Lista Canali o Pagine: https://www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA")
     }
 
-    if (message.cont == ".help") {
-        message.channel.send("Prefisso: . \n Lista dei comandi: \n play \n stop \n pause \n resume \n queue \n skip \n previous \n link")
+    if (message.conttent == ".help") {
+        message.channel.send("Prefisso: . \n Lista dei comandi: play \n stop \n pause \n resume \n queue \n skip \n previous \n link")
     }
 
 })
