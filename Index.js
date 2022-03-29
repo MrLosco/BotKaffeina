@@ -254,7 +254,7 @@ client.on("messageCreate", message => {
     }
 
     if (message.cont == ".help") {
-        message.channel.send("Lista dei comandi: \n .play \n .stop \n .pause \n .resume \n .queue \n .skip \n .previous \n .link")
+        message.channel.send("Prefisso: . \n Lista dei comandi: \n play \n stop \n pause \n resume \n queue \n skip \n previous \n link")
     }
 
 })
