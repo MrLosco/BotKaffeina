@@ -22,6 +22,11 @@ const distube = new DisTube(client, {
 })
 
 var embed = new Discord.MessageEmbed()
+    .setColor("#ff0000")
+    .setTitle("Lista Canali")
+    .setDescription("OmegaClick", "https://www.youtube.com/c/OmegaClick6", "https://www.youtube.com/c/OmegaClick6")
+
+
 
 client.on("messageCreate", message => {
     if (message.content.startsWith(".play")) {
