@@ -293,9 +293,6 @@ function oraAttuale() {
     if (hour == 21 && minutes == 30) {
         canale.send("Buonanotte ragazzuoli @everyone")
     }
-    if (hour == 19 && minutes == 15) {
-        canale.send("KoffeTime @everyone")
-    }
     if (hour == 11 && minutes == 0) {
         canale.send("Buon pranzo <@625643719848230922>")
     }    
