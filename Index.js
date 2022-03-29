@@ -21,7 +21,7 @@ const distube = new DisTube(client, {
     leaveOnStop: true
 })
 
-var embed = new Discord_messageEmb
+var embed = new Discord.MessageEmbed()
 
 client.on("messageCreate", message => {
     if (message.content.startsWith(".play")) {
@@ -258,6 +258,7 @@ client.on("messageCreate", message => {
     if (message.content == "!comando") {
         message.channel.send(embed)
     }
+
 })
 
 distube.on("addSong", (queue, song) => {
