@@ -21,6 +21,8 @@ const distube = new DisTube(client, {
     leaveOnStop: true
 })
 
+var embed = new Discord_messageEmb
+
 client.on("messageCreate", message => {
     if (message.content.startsWith(".play")) {
         const voiceChannel = message.member.voice.channel
