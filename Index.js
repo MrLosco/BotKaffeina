@@ -261,7 +261,7 @@ client.on("messageCreate", message => {
         .addField('I\'m Salvatore MoD', 'https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA')
         .addField('Gruppo Telegram', 'https://t.me/+njsH1TCi2Ec0MWE8')
         .addField('NASA', 'https://www.nasa.gov/content/live-coverage-of-the-soyuz-ms-19-crew-return-to-earth')
-        message.channel.send({ embeds: [linkEmbed] });
+        message.channel.send({ embeds: [linkEmbed], ephemeral: true });
     
     }
     
@@ -278,7 +278,7 @@ client.on("messageCreate", message => {
              .addField('Traccia Precedente ⏮️', '.previous')
              .addField('Stoppare Traccia ⏹️', '.stop')
              .addField('Link Utili 🔗', '.link');
-        message.channel.send({ embeds: [helpEmbed] });     
+        message.channel.send({ embeds: [helpEmbed], ephemeral: true });     
 
 
     }
