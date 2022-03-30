@@ -336,7 +336,7 @@ setInterval(() => {
         var idVideo = response.items[0]?.videoID
         if (!idVideo) return
 
-        client.channels.cache.get("idCanale").messages.fetch()
+        client.channels.cache.get("954115113219145801").messages.fetch()
             .then(messages => {
                 var giaMandato = false;
                 messages.forEach(msg => {
@@ -352,7 +352,7 @@ setInterval(() => {
 Andate a vedere "${response.items[0].title}\"
 [Ecco il video](https://youtu.be/${idVideo})`)
 
-                    client.channels.cache.get('idCanale').send({ embeds: [embed] });
+                    client.channels.cache.get('954115113219145801').send({ embeds: [embed] });
                 }
             })
     })
