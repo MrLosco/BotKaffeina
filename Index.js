@@ -283,19 +283,33 @@ client.on("messageCreate", message => {
 
     }
 
-    if (message.content == "!lastvideo") {
+    if (message.content == ".salvo") {
         const channelId = 'UCNb3JAgwBtJ0tXtJHHKXKJA' 
         ytch.getChannelVideos(channelId, "newest").then((response) => {
-            var embedLastVideo = new Discord.MessageEmbed()
+            var embedSalvo = new Discord.MessageEmbed()
                 .setTitle(response.items[0].title)
                 .setURL("https://www.youtube.com/watch?v=" + response.items[0].videoId)
                 .setThumbnail(response.items[0].videoThumbnails[3].url)
                 .addField("Views", response.items[0].viewCount.toString(), true)
                 .addField("Duration", response.items[0].durationText, true)
                 .addField("Published", response.items[0].publishedText, true)
-            message.channel.send({embeds: [embedLastVideo] })
+            message.channel.send({embeds: [embedSalvo] })
         })
     }
+
+    if (message.content == ".omega") {
+        const channelId = 'UCLrgUeP56dUPUwp4vCy6RIQ' 
+        ytch.getChannelVideos(channelId, "newest").then((response) => {
+             var embedOmega = new Discord.MessageEmbed()
+                .setTitle(response.items[0].title)
+                .setURL("https://www.youtube.com/watch?v=" + response.items[0].videoId)
+                .setThumbnail(response.items[0].videoThumbnails[3].url)
+                .addField("Views", response.items[0].viewCount.toString(), true)
+                .addField("Duration", response.items[0].durationText, true)
+                .addField("Published", response.items[0].publishedText, true)
+            message.channel.send({embeds: [embedOmega] })
+        })
+    } 
 })
 
 distube.on("addSong", (queue, song) => {
