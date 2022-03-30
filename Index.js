@@ -7,7 +7,7 @@ const client = new Discord.Client({
 client.login("OTU2MjkwMjY5ODMyMTY3NTA0.YjuEtw.pBw-7eIQjIldsRvCMijVpCTw1VI")
 
 client.on("ready", () => {
-    console.log("ONLINE");
+    console.log("BOT ONLINE by MrLosco");
     client.user.setActivity('.help'),{
         type: 'LISTENING'
     }
@@ -359,10 +359,13 @@ function oraAttuale() {
 }
 setInterval(oraAttuale, 1000 * 60)
 
-setInterval(function () {
+setInterval(function () {{
     const channelId = 'UCLrgUeP56dUPUwp4vCy6RIQ'
-    var canale = client.channels.cache.get("954115113219145802") 
-        ytch.getChannelVideos(channelId, "newest").then((response) => {
+    var canale = client.channels.cache.get("954115113219145802")
+    var giaMandato = false; 
+    if (ytch.getChannelVideos(channelId, "newest").then((response))) giaMandato = true;
+}
+    if (!giaMandato) {
              var embedOmeganews = new Discord.MessageEmbed()
                 .setTitle(response.items[0].title)
                 .setURL("https://www.youtube.com/watch?v=" + response.items[0].videoId)
@@ -371,7 +374,7 @@ setInterval(function () {
                 .addField("Duration", response.items[0].durationText, true)
                 .addField("Published", response.items[0].publishedText, true)
             canale.send({embeds: [embedOmeganews] })
-        })
+        }
 }, 1000 * 10)
 
 
