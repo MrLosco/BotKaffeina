@@ -250,9 +250,16 @@ client.on("messageCreate", message => {
     }
 
     if (message.content == ".link") {
-        message.channel.send("Lista Canali o Pagine: https://www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA \n https://t.me/+qy7r3HY10sg2NjFk")
+        const linkEmbed = new Discord.MessageEmbed()
+        .setColor('#b45fed')
+        .setTitle('🔗 Lista Link 🔗')
+        .setDescription('Lista in aggiornamento...⚙️')
+        .addField('OmegaClick ', 'https://www.youtube.com/c/OmegaClick6')
+        .addField('I\'m Salvatore MoD', 'https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA')
+        message.channel.send({ embeds: [linkEmbed] });
+    
     }
-
+    
     if (message.content == ".help") {
         const helpEmbed = new Discord.MessageEmbed()
              .setColor('DARK_GREY')
@@ -265,7 +272,7 @@ client.on("messageCreate", message => {
              .addField('Traccia Successiva ⏩', '.skip')
              .addField('Traccia Precedente ⏮️', '.previous')
              .addField('Stoppare Traccia ⏹️', '.stop')
-             .addField('Link Utili 🔗', 'https://www.youtube.com/c/OmegaClick6');
+             .addField('Link Utili 🔗', '.link');
         message.channel.send({ embeds: [helpEmbed] });     
 
 
