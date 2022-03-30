@@ -249,9 +249,9 @@ client.on("messageCreate", message => {
         message.channel.send("Queue stoppata")
     }
 
-    if (message.content == ".repeat") {
+    if (message.content == ".repeats") {
         const args = message.content.slice(".repeat".length).trim().split(/ +/g);
-        let mode = distube.setRepeatMode(message, parseInt(args[0]));
+        let mode = distube.setRepeatMode(message, parseInt(args[1]));
         mode = mode ? mode == 2 ? "Repeat queue" : "Repeat song" : "Off";
         message.channel.send("Set repeat mode to `" + mode + "`");
     }
