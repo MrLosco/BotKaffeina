@@ -7,6 +7,9 @@ client.login("OTU2MjkwMjY5ODMyMTY3NTA0.YjuEtw.pBw-7eIQjIldsRvCMijVpCTw1VI")
 
 client.on("ready", () => {
     console.log("ONLINE");
+    client.user.setActivity('.help'),{
+        type: 'LISTENING'
+    }
 })
 
 const { DisTube } = require("distube")
