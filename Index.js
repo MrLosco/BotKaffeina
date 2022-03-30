@@ -284,7 +284,7 @@ client.on("messageCreate", message => {
     }
 
     if (message.content == "!lastvideo") {
-        const channelId = 'UCLrgUeP56dUPUwp4vCy6RIQ' 
+        const channelId = 'UCNb3JAgwBtJ0tXtJHHKXKJA' 
         ytch.getChannelVideos(channelId, "newest").then((response) => {
             var embedLastVideo = new Discord.MessageEmbed()
                 .setTitle(response.items[0].title)
