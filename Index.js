@@ -256,7 +256,7 @@ client.on("messageCreate", message => {
     if (message.content == ".help") {
         const helpEmbed = new Discord.MessageEmbed()
              .setColor('DARK_GREY')
-             .setTitle('Lista comandi')
+             .setTitle('Comandi in aggiornamento...')
              .setDescription('Prefisso .')
              .addField('Play', '.play link YouTube Spotify SoundCloud')
              .addField('Pausa', '.pause')
