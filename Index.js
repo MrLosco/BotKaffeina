@@ -329,31 +329,4 @@ function oraAttuale() {
 }
 setInterval(oraAttuale, 1000 * 60)
 
-const ytch = require("yt-channel-info@2.2.0")
 
-setInterval(() => {
-    ytch.getChannelVideos("OmegaClick6", "newest").then(async response => {
-        var idVideo = response.items[0]?.videoID
-        if (!idVideo) return
-
-        client.channels.cache.get("954115113219145801").messages.fetch()
-            .then(messages => {
-                var giaMandato = false;
-                messages.forEach(msg => {
-                    if (msg.embeds[0]?.url?.endsWith(idVideo)) giaMandato = true;
-                });
-
-                if (!giaMandato) {
-                    var embed = new Discord.MessageEmbed()
-                        .setTitle("Nuovo video")
-                        .setURL(`https://youtu.be/${idVideo}`) //Importante non levarlo
-                        .setThumbnail(response.items[0].videoThumbnails[3].url)
-                        .setDescription(`Ciao, è appena uscito un video su **${response.items[0].author}**
-Andate a vedere "${response.items[0].title}\"
-[Ecco il video](https://youtu.be/${idVideo})`)
-
-                    client.channels.cache.get('954115113219145801').send({ embeds: [embed] });
-                }
-            })
-    })
-}, 1000 * 30)
