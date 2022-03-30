@@ -254,7 +254,21 @@ client.on("messageCreate", message => {
     }
 
     if (message.content == ".help") {
-        message.channel.send("Prefisso: . \n Lista dei comandi: \n play \n stop \n pause \n resume \n queue \n skip \n previous \n link")
+        const helpEmbed = new Discord.MessageEmbed()
+             .setColor('DARK_GREY')
+             .setTitle('Lista comandi')
+             .setDescription('Prefisso .')
+             .addField('Play', '.play link YouTube Spotify SoundCloud')
+             .addField('Pausa', '.pause')
+             .addField('Riprendi Traccia', '.resume')
+             .addField('Lista Tracce', '.queue')
+             .addField('Traccia Successiva', '.skip')
+             .addField('Traccia Precedente', '.previous')
+             .addField('Stoppare Bot', '.stop')
+             .addField('Link Utili', '.link');
+        channel.send({ embeds: [helpEmbed] });     
+
+
     }
 
 })
