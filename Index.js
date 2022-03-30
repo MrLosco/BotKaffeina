@@ -250,7 +250,7 @@ client.on("messageCreate", message => {
     }
 
     if (message.content == ".link") {
-        message.channel.send("Lista Canali o Pagine: https://www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA")
+        message.channel.send("Lista Canali o Pagine: https://www.youtube.com/c/OmegaClick6 \n https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA \n https://t.me/+qy7r3HY10sg2NjFk")
     }
 
     if (message.content == ".help") {
@@ -265,7 +265,7 @@ client.on("messageCreate", message => {
              .addField('Traccia Successiva ⏩', '.skip')
              .addField('Traccia Precedente ⏮️', '.previous')
              .addField('Stoppare Traccia ⏹️', '.stop')
-             .addField('Link Utili 🔗', '.link');
+             .addField('Link Utili 🔗', 'https://www.youtube.com/c/OmegaClick6');
         message.channel.send({ embeds: [helpEmbed] });     
 
 
