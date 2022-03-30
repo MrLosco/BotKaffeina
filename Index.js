@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const ytch = require('yt-channel-info');
 const client = new Discord.Client({
     intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_VOICE_STATES"] 
 })
@@ -280,9 +281,21 @@ client.on("messageCreate", message => {
              .addField('Link Utili 🔗', '.link');
         message.channel.send({ embeds: [helpEmbed], ephemeral: true });     
 
-
     }
 
+    if (message.content == "!lastvideo") {
+        const channelId = 'UCLrgUeP56dUPUwp4vCy6RIQ' 
+        ytch.getChannelVideos(channelId, "newest").then((response) => {
+            var embed = new Discord.MessageEmbed()
+                .setTitle(response.items[0].title)
+                .setURL("https://www.youtube.com/watch?v=" + response.items[0].videoId)
+                .setThumbnail(response.items[0].videoThumbnails[3].url)
+                .addField("Views", response.items[0].viewCount.toString(), true)
+                .addField("Duration", response.items[0].durationText, true)
+                .addField("Published", response.items[0].publishedText, true)
+            message.channel.send({embeds: [embeds] })
+        })
+    }
 })
 
 distube.on("addSong", (queue, song) => {
