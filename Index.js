@@ -256,6 +256,7 @@ client.on("messageCreate", message => {
         .setDescription('Lista in aggiornamento...⚙️')
         .addField('OmegaClick ', 'https://www.youtube.com/c/OmegaClick6')
         .addField('I\'m Salvatore MoD', 'https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA')
+        .addField('NASA', 'https://www.nasa.gov/content/live-coverage-of-the-soyuz-ms-19-crew-return-to-earth')
         message.channel.send({ embeds: [linkEmbed] });
     
     }
