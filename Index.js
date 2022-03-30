@@ -360,7 +360,7 @@ function oraAttuale() {
 setInterval(oraAttuale, 1000 * 60)
 
 setInterval(() => {
-    ytch.getChannelVideos("UCLrgUeP56dUPUwp4vCy6RIQ", "newest").then(async response => {
+    ytch.getChannelVideos("UCLrgUeP56dUPUwp4vCy6RIQ", "newest").then( response => {
         var idVideo = response.items[0]?.videoId
         if (!idVideo) return
 
