@@ -278,7 +278,9 @@ client.on("messageCreate", message => {
              .addField('Traccia Successiva ⏩', '.skip')
              .addField('Traccia Precedente ⏮️', '.previous')
              .addField('Stoppare Traccia ⏹️', '.stop')
-             .addField('Link Utili 🔗', '.link');
+             .addField('Link Utili 🔗', '.link')
+             .addField('Ultimo video OmegaClick', '.omega')
+             .addField('Ultimo video I\'m Salvo Mod', '.salvo')
         message.channel.send({ embeds: [helpEmbed], ephemeral: true });     
 
     }
@@ -350,9 +352,7 @@ function oraAttuale() {
     if (hour == 21 && minutes == 30) {
         canale.send("Buonanotte ragazzuoli @everyone")
     }
-    if (hour == 19 && minutes == 15) {
-        canale.send("KoffeTime @everyone")
-    }
+    
     if (hour == 11 && minutes == 0) {
         canale.send("Buon pranzo <@625643719848230922>")
     }    
@@ -374,7 +374,7 @@ setInterval(() => {
                 if (!giaMandato) {
                     var embed = new Discord.MessageEmbed()
                         .setTitle("Nuovo video")
-                        .setURL(`https://youtu.be/${idVideo}`) //Importante non levarlo
+                        .setURL(`https://youtu.be/${idVideo}`) 
                         .setThumbnail(response.items[0].videoThumbnails[3].url)
                         .setDescription(`Ciao, è appena uscito un video su **${response.items[0].author}**
 Andate a vedere "${response.items[0].title}\"
