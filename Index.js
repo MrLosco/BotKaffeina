@@ -266,7 +266,7 @@ client.on("messageCreate", message => {
              .addField('Traccia Precedente', '.previous')
              .addField('Stoppare Bot', '.stop')
              .addField('Link Utili', '.link');
-        channel.send({ embeds: [helpEmbed] });     
+        message.channel.send({ embeds: [helpEmbed] });     
 
 
     }
