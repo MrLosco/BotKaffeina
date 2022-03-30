@@ -257,15 +257,15 @@ client.on("messageCreate", message => {
         const helpEmbed = new Discord.MessageEmbed()
              .setColor('DARK_GREY')
              .setTitle('Lista Comandi')
-             .setDescription('Comandi in aggiornamento...')
-             .addField('Play', '.play link YouTube Spotify SoundCloud')
-             .addField('Pausa', '.pause')
-             .addField('Riprendi Traccia', '.resume')
-             .addField('Lista Tracce', '.queue')
-             .addField('Traccia Successiva', '.skip')
-             .addField('Traccia Precedente', '.previous')
-             .addField('Stoppare Bot', '.stop')
-             .addField('Link Utili', '.link');
+             .setDescription('Comandi in aggiornamento...⚙️')
+             .addField('Play ▶️', '.play link YouTube Spotify SoundCloud')
+             .addField('Pausa ⏸️', '.pause')
+             .addField('Riprendi Traccia ⏯️', '.resume')
+             .addField('Lista Tracce 📝', '.queue')
+             .addField('Traccia Successiva ⏩', '.skip')
+             .addField('Traccia Precedente ⏮️', '.previous')
+             .addField('Stoppare Traccia ⏹️', '.stop')
+             .addField('Link Utili 🔗', '.link');
         message.channel.send({ embeds: [helpEmbed] });     
 
 
