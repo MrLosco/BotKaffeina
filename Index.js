@@ -360,3 +360,55 @@ function oraAttuale() {
 setInterval(oraAttuale, 1000 * 60)
 
 
+setInterval(() => {
+    ytch.getChannelVideos("UCLrgUeP56dUPUwp4vCy6RIQ", "newest").then(async response => {
+        var idVideo = response.items[0]?.videoId
+        if (!idVideo) return
+
+        client.channels.cache.get("959168230965006356").messages.fetch()
+            .then(messages => {
+                var giaMandato = false;
+                messages.forEach(msg => {
+                    if (msg.content.includes(idVideo)) giaMandato = true;
+                });
+
+                if (!giaMandato) {
+                    client.channels.cache.get("959168230965006356").send(`-------------📽️ __**NUOVO VIDEO**__ 📽️ -------------
+
+
+@everyone, è appena uscito un video su **${response.items[0].author}**
+Correte a vedere "${response.items[0].title}"
+
+
+https://www.youtu.be/${idVideo}`)
+                }
+            })
+    })
+}, 1000 * 10)
+
+
+setInterval(() => {
+    ytch.getChannelVideos("UCNb3JAgwBtJ0tXtJHHKXKJA", "newest").then(async response => {
+        var idVideo = response.items[0]?.videoId
+        if (!idVideo) return
+
+        client.channels.cache.get("959168230965006356").messages.fetch()
+            .then(messages => {
+                var giaMandato = false;
+                messages.forEach(msg => {
+                    if (msg.content.includes(idVideo)) giaMandato = true;
+                });
+
+                if (!giaMandato) {
+                    client.channels.cache.get("959168230965006356").send(`-------------👨‍💻 __**NUOVO VIDEO**__ 👨‍💻-------------
+
+
+@everyone, è appena uscito un video su **${response.items[0].author}**
+Correte a vedere "${response.items[0].title}"
+
+
+https://www.youtu.be/${idVideo}`)
+                }
+            })
+    })
+}, 1000 * 10)
