@@ -468,5 +468,23 @@ client.on("guildMemberRemove", member => {
 
     client.channels.cache.get("949783943304073296").send({embeds: [embed]}); 
 })
+
+//SERVER INFO
+client.on("messageCreate", message => {
+    if (message.content == ".serverinfo") {
+        var server = message.guild;
+        var embed = new Discord.MessageEmbed()
+            .setTitle(server.name)
+            .setDescription("INFO SERVER")
+            .setThumbnail(server.iconURL())
+            .addField("Amministratore", client.users.cache.get(server.ownerId).username, true)
+            .addField("Server id", server.id, true)
+            .addField("Membri", server.memberCount.toString(), false)
+            .addField("Canali", server.channels.cache.size.toString(), false)
+            .addField("Data creazione server", server.createdAt.toDateString(), true)
+            .addField("Livello Boost", "Livello " + (server.premiumTier != "NONE" ? server.premiumTier : 0) + " (Boost: " + server.premiumSubscriptionCount + ")", true)
+        message.channel.send({ embeds: [embed] })
+    }
+})
     
 
