@@ -313,7 +313,7 @@ client.on("messageCreate", message => {
             message.channel.send({embeds: [embedOmega] })
         })
     }
-    
+    if (message.content.startsWith(".userinfo")) {
     if (message.content == ".userinfo") {
         var utente = message.member;
         }
@@ -345,7 +345,7 @@ client.on("messageCreate", message => {
             .addField("Permessi", elencoPermessi, false)
             .addField("Ruoli", utente.roles.cache.map(ruolo => ruolo.name).join("\r"), false)
         message.channel.send({ embeds: [embedUserinfo] })
-    
+    }
 })
 
 distube.on("addSong", (queue, song) => {
