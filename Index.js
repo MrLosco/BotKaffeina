@@ -419,7 +419,7 @@ https://www.youtu.be/${idVideo}`)
                 }
             })
     })
-}, 1000 * 10)
+}, 1000 * 60)
 
 
 setInterval(() => {
@@ -446,7 +446,7 @@ https://www.youtu.be/${idVideo}`)
                 }
             })
     })
-}, 1000 * 10)
+}, 1000 * 60)
 
 //MESSAGGIO DI BENVENUTO 
 
