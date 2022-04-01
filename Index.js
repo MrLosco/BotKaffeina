@@ -281,7 +281,7 @@ client.on("messageCreate", message => {
              .addField('Traccia Precedente ⏮️', '.previous')
              .addField('Stoppare Traccia ⏹️', '.stop')
              .addField('Link Utili 🔗', '.link')
-             .addField('🚧**COMANDI DA FIXARE**🚧')
+             .addField('🚧**COMANDI DA FIXARE**🚧', '👷torneranno presto👷')
              .addField('Ultimo video OmegaClick', '.omega')
              .addField('Ultimo video I\'m Salvo Mod', '.salvo')
         message.channel.send({ embeds: [helpEmbed] });     
