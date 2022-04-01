@@ -447,3 +447,26 @@ https://www.youtu.be/${idVideo}`)
             })
     })
 }, 1000 * 10)
+
+//MESSAGGIO DI BENVENUTO 
+
+client.on("guildMemberAdd", member => {
+    if (member.user.bot) return
+    var embed = new Discord.MessageEmbed()
+        .setTitle("BENVENUTO")
+        .setDescription(`Ciao ${member.toString()}, benvenuto nel ${member.guild.name}. Sei il **${member.guild.memberCount}Â° Membro**`)
+
+    client.channels.cache.get("949783943304073296").send({embeds: [embed]});  
+})
+
+//MESSAGGIO DI ADDIO 
+client.on("guildMemberRemove", member => {
+    
+    var embed = new Discord.MessageEmbed()
+        .setTitle("TORNA A TROVARCI")
+        .setDescription(`A presto ${member.toString()}!, spero di rivederti da queste parti nel ${member.guild.name}`)
+
+    client.channels.cache.get("949783943304073296").send({embeds: [embed]}); 
+})
+    
+
