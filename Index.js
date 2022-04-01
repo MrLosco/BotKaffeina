@@ -452,28 +452,28 @@ https://www.youtu.be/${idVideo}`)
 
 client.on("guildMemberAdd", member => {
     if (member.user.bot) return
-    var embed = new Discord.MessageEmbed()
+    var embedCiao = new Discord.MessageEmbed()
         .setTitle("BENVENUTO")
         .setDescription(`Ciao ${member.toString()}, benvenuto nel ${member.guild.name}. Sei il **${member.guild.memberCount}Â° Membro**`)
 
-    client.channels.cache.get("949783943304073296").send({embeds: [embed]});  
+    client.channels.cache.get("949783943304073296").send({embeds: [embedCiao]});  
 })
 
 //MESSAGGIO DI ADDIO 
 client.on("guildMemberRemove", member => {
     
-    var embed = new Discord.MessageEmbed()
+    var embedAddio = new Discord.MessageEmbed()
         .setTitle("TORNA A TROVARCI")
         .setDescription(`A presto ${member.toString()}!, spero di rivederti da queste parti nel ${member.guild.name}`)
 
-    client.channels.cache.get("949783943304073296").send({embeds: [embed]}); 
+    client.channels.cache.get("949783943304073296").send({embeds: [embedAddio]}); 
 })
 
 //SERVER INFO
 client.on("messageCreate", message => {
     if (message.content == ".serverinfo") {
         var server = message.guild;
-        var embed = new Discord.MessageEmbed()
+        var embedServer = new Discord.MessageEmbed()
             .setTitle(server.name)
             .setDescription("INFO SERVER")
             .setThumbnail(server.iconURL())
@@ -483,7 +483,7 @@ client.on("messageCreate", message => {
             .addField("Canali", server.channels.cache.size.toString(), false)
             .addField("Data creazione server", server.createdAt.toDateString(), true)
             .addField("Livello Boost", "Livello " + (server.premiumTier != "NONE" ? server.premiumTier : 0) + " (Boost: " + server.premiumSubscriptionCount + ")", true)
-        message.channel.send({ embeds: [embed] })
+        message.channel.send({ embeds: [embedServer] })
     }
 })
     
