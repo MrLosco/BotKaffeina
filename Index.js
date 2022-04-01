@@ -258,6 +258,7 @@ client.on("messageCreate", message => {
         .setColor('#b45fed')
         .setTitle('🔗 Lista Link 🔗')
         .setDescription('Lista in aggiornamento...⚙️')
+        .addField('BotKaffeina ', 'https://github.com/MrLosco/BotKaffeina')
         .addField('OmegaClick ', 'https://www.youtube.com/c/OmegaClick6')
         .addField('I\'m Salvatore MoD', 'https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA')
         .addField('Gruppo Telegram', 'https://t.me/+-iJRpukkPGU4MzI0')
