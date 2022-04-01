@@ -271,6 +271,7 @@ client.on("messageCreate", message => {
              .setColor('DARK_GREY')
              .setTitle('Lista Comandi')
              .setDescription('Comandi in aggiornamento...⚙️')
+             .addField('Informazioni utente 👤❓', ".userinfo @(utente da menzionare)")
              .addField('Play ▶️', '.play link YouTube Spotify SoundCloud')
              .addField('Pausa ⏸️', '.pause')
              .addField('Riprendi Traccia ⏯️', '.resume')
@@ -314,7 +315,7 @@ client.on("messageCreate", message => {
     }
     
     if (message.content.startsWith("!userinfo")) {
-        if (message.content == "!userinfo") {
+        if (message.content == ".userinfo") {
             var utente = message.member;
         }
         else {
