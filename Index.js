@@ -342,7 +342,7 @@ client.on("messageCreate", message => {
             .addField("è un bot?", utente.user.bot ? "Yes" : "No", true)
             .addField("Account creato", utente.user.createdAt.toDateString(), true)
             .addField("Entrato nel server", utente.joinedAt.toDateString(), true)
-            .addField("Permi", elencoPermessi, false)
+            .addField("Permessi", elencoPermessi, false)
             .addField("Ruoli", utente.roles.cache.map(ruolo => ruolo.name).join("\r"), false)
         message.channel.send({ embeds: [embedUserinfo] })
     }
