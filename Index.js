@@ -7,7 +7,7 @@ const client = new Discord.Client({
 client.login(process.env.token)
 
 client.on("ready", () => {
-    console.log("BOT ONLINE by MrLosco");
+    console.log("BOT ONLINE by MrLosco dev");
     client.user.setActivity('.help'),{
         type: 'LISTENING'
     }
