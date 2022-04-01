@@ -263,7 +263,7 @@ client.on("messageCreate", message => {
         .addField('I\'m Salvatore MoD', 'https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA')
         .addField('Gruppo Telegram', 'https://t.me/+-iJRpukkPGU4MzI0')
         .addField('NASA', 'https://www.nasa.gov/content/live-coverage-of-the-soyuz-ms-19-crew-return-to-earth')
-        message.channel.send({ embeds: [linkEmbed], ephemeral: true });
+        message.channel.send({ embeds: [linkEmbed] });
     
     }
     
@@ -281,39 +281,13 @@ client.on("messageCreate", message => {
              .addField('Traccia Precedente ⏮️', '.previous')
              .addField('Stoppare Traccia ⏹️', '.stop')
              .addField('Link Utili 🔗', '.link')
+             .addField('🚧**COMANDI DA FIXARE**🚧')
              .addField('Ultimo video OmegaClick', '.omega')
              .addField('Ultimo video I\'m Salvo Mod', '.salvo')
         message.channel.send({ embeds: [helpEmbed], ephemeral: true });     
 
     }
 
-    if (message.content == ".salvo") {
-        const channelId = 'UCNb3JAgwBtJ0tXtJHHKXKJA' 
-        ytch.getChannelVideos(channelId, "newest").then((response) => {
-            var embedSalvo = new Discord.MessageEmbed()
-                .setTitle(response.items[0].title)
-                .setURL("https://www.youtube.com/watch?v=" + response.items[0].videoId)
-                .setThumbnail(response.items[0].videoThumbnails[3].url)
-                .addField("Views", response.items[0].viewCount.toString(), true)
-                .addField("Durata", response.items[0].durationText, true)
-                .addField("Data Pubblicazione", response.items[0].publishedText, true)
-            message.channel.send({embeds: [embedSalvo] })
-        })
-    }
-
-    if (message.content == ".omega") {
-        const channelId = 'UCLrgUeP56dUPUwp4vCy6RIQ' 
-        ytch.getChannelVideos(channelId, "newest").then((response) => {
-             var embedOmega = new Discord.MessageEmbed()
-                .setTitle(response.items[0].title)
-                .setURL("https://www.youtube.com/watch?v=" + response.items[0].videoId)
-                .setThumbnail(response.items[0].videoThumbnails[3].url)
-                .addField("Views", response.items[0].viewCount.toString(), true)
-                .addField("Durata", response.items[0].durationText, true)
-                .addField("Data Pubblicazione", response.items[0].publishedText, true)
-            message.channel.send({embeds: [embedOmega] })
-        })
-    }
     if (message.content.startsWith(".userinfo")) {
     if (message.content == ".userinfo") {
         var utente = message.member;
@@ -486,5 +460,58 @@ client.on("messageCreate", message => {
         message.channel.send({ embeds: [embedServer] })
     }
 })
-    
+//CHANNELINFO
+
+client.on("messageCreate", message => {
+    if (message.content.startsWith(".channelinfo")) {
+        if (message.content == ".channelinfo") {
+            var canale = message.channel;
+        }
+        else {
+            var canale = message.mentions.channels.first();
+        }
+        if (!canale) {
+            return message.channel.send("Canale non trovato");
+        }
+        switch (canale.type) {
+            case "GUILD_TEXT": canale.type = "Testo"; break;
+            case "GUILD_VOICE": canale.type = "Voce"; break;
+            case "GUILD_CATEGORY": canale.type = "Categoria"; break;
+        }
+        if (canale.type == "Voice") {
+            var embed = new Discord.MessageEmbed()
+                .setTitle(canale.name)
+                .setDescription("Tutte le statistiche su questo canale")
+                .addField("Channel ID", canale.id, true)
+                .addField("Tipologia", canale.type, true)
+                .addField("Posizione", canale.rawPosition.toString(), true)
+                .addField("Categoria", `<#${canale.parentId}>`, true)
+                .addField("Bitrate", canale.bitrate.toString(), true)
+                .addField("User limit", canale.userLimit == 0 ? "∞" : canale.userLimit.toString(), true)
+            return message.channel.send({ embeds: [embed] })
+        }
+        if (canale.type == "Category") {
+            var embed = new Discord.MessageEmbed()
+                .setTitle(canale.name)
+                .setDescription("Tutte le statistiche su questa categoria")
+                .addField("Category ID", canale.id, true)
+                .addField("Tipologia", canale.type, true)
+                .addField("Posizione", canale.rawPosition.toString(), true)
+                .addField("Data di creazione", canale.createdAt.toDateString())
+            return message.channel.send({ embeds: [embed] })
+        }
+        var embed = new Discord.MessageEmbed()
+            .setTitle(canale.name)
+            .setDescription("Tutte le statistiche su questo canale")
+            .addField("Channel ID", canale.id, true)
+            .addField("Tipologia", canale.type, true)
+            .addField("Posizione", canale.rawPosition.toString(), true)
+            .addField("Categoria", `<#${canale.parentId}>`, true)
+            .addField("Topic", !canale.topic ? "No topic" : canale.topic, true)
+            .addField("NSFW", canale.nsfw ? "yes" : "No", true)
+            .addField("Data di creazione", canale.createdAt.toDateString())
+        message.channel.send({ embeds: [embed] })
+    }
+})
+
 
