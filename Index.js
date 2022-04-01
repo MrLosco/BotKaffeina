@@ -284,7 +284,7 @@ client.on("messageCreate", message => {
              .addField('🚧**COMANDI DA FIXARE**🚧')
              .addField('Ultimo video OmegaClick', '.omega')
              .addField('Ultimo video I\'m Salvo Mod', '.salvo')
-        message.channel.send({ embeds: [helpEmbed], ephemeral: true });     
+        message.channel.send({ embeds: [helpEmbed] });     
 
     }
 
