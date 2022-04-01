@@ -4,7 +4,7 @@ const client = new Discord.Client({
     intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_VOICE_STATES"] 
 })
 
-client.login(processo.env.token)
+client.login(process.env.token)
 
 client.on("ready", () => {
     console.log("BOT ONLINE by MrLosco");
