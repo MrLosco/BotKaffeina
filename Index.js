@@ -281,9 +281,10 @@ client.on("messageCreate", message => {
              .addField('Traccia Precedente ⏮️', '.previous')
              .addField('Stoppare Traccia ⏹️', '.stop')
              .addField('Link Utili 🔗', '.link')
-             .addField('🚧**COMANDI DA FIXARE**🚧', '👷torneranno presto👷')
              .addField('Ultimo video OmegaClick', '.omega')
              .addField('Ultimo video I\'m Salvo Mod', '.salvo')
+             .addField('🚧**COMANDI DA FIXARE**🚧', '👷torneranno presto👷')
+             
         message.channel.send({ embeds: [helpEmbed] });     
 
     }
@@ -513,5 +514,40 @@ client.on("messageCreate", message => {
         message.channel.send({ embeds: [embed] })
     }
 })
+
+//COMANDO PER NEWS CANALE YOUTUBE (OMEGACLICK)
+client.on('messageCreate', message => {
+if (message.content == ".omega") {
+    const channelId = 'UCLrgUeP56dUPUwp4vCy6RIQ' 
+    ytch.getChannelVideos(channelId, "newest").then((response) => {
+         var embedOmega = new Discord.MessageEmbed()
+            .setTitle(response.items[0].title)
+            .setURL("https://www.youtube.com/watch?v=" + response.items[0].videoId)
+            .setThumbnail(response.items[0].videoThumbnails[3].url)
+            .addField("Views", response.items[0].viewCount.toString(), true)
+            .addField("Durata", response.items[0].durationText, true)
+            .addField("Data Pubblicazione", response.items[0].publishedText, true)
+        message.channel.send({embeds: [embedOmega] })
+      })
+    }
+})
+
+ //COMANDO PER NEWS CANALE YOUTUBE (I'M SALVATORE MOD)
+client.on('messageCreate', message => {
+if (message.content == ".salvo") {
+    const channelId = 'UCNb3JAgwBtJ0tXtJHHKXKJA' 
+    ytch.getChannelVideos(channelId, "newest").then((response) => {
+        var embedSalvo = new Discord.MessageEmbed()
+            .setTitle(response.items[0].title)
+            .setURL("https://www.youtube.com/watch?v=" + response.items[0].videoId)
+            .setThumbnail(response.items[0].videoThumbnails[3].url)
+            .addField("Views", response.items[0].viewCount.toString(), true)
+            .addField("Durata", response.items[0].durationText, true)
+            .addField("Data Pubblicazione", response.items[0].publishedText, true)
+        message.channel.send({embeds: [embedSalvo] })
+      })
+    }
+})       
+
 
 
