@@ -452,7 +452,7 @@ client.on("messageCreate", message => {
             .setTitle(server.name)
             .setDescription("INFO SERVER")
             .setThumbnail(server.iconURL())
-            .addField("Amministratore", client.users.cache.get(server.ownerId), true)
+            .addField("Amministratore", client.users.cache.get(server.ownerId).username, true)
             .addField("Server id", server.id, true)
             .addField("Membri", server.memberCount.toString(), false)
             .addField("Canali", server.channels.cache.size.toString(), false)
