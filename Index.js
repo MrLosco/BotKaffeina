@@ -549,5 +549,16 @@ if (message.content == ".salvo") {
     }
 })       
 
+//LATENZA BOT
+client.on("messageCreate", message => {
+    if (message.content == ".ping") {
+        var embed = new Discord.MessageEmbed()
+            .setTitle("Ping del bot")
+            .setDescription("Latenza del bot")
+            .addField("Ping", `${client.ws.ping}ms`)
+
+        message.channel.send({embeds: [embed]})
+    }
+})
 
 
