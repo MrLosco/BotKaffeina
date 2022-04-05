@@ -540,7 +540,7 @@ client.on("messageCreate", message => {
 //COMANDO HELP REVISIONATO
 
 client.on('messageCreate', message => {
-    if (message.content == "-help") {
+    if (message.content == ".help") {
         let embedCategorie = new Discord.MessageEmbed()
         .setTitle("LISTA CATEGORIE")
         .setDescription("clicca il bottone per la categoria desiderata")
