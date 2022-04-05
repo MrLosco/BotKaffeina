@@ -24,7 +24,7 @@ const distube = new DisTube(client, {
     leaveOnEmpty: true,
     leaveOnStop: true
 })
-
+//COMANDO PLAY MUSICA
 client.on("messageCreate", message => {
     if (message.content.startsWith(".play")) {
         const voiceChannel = message.member.voice.channel
@@ -50,7 +50,7 @@ client.on("messageCreate", message => {
             message: message
         })
     }
-
+//COMANDO PAUSE MUSICA
     if (message.content == ".pause") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
@@ -71,7 +71,7 @@ client.on("messageCreate", message => {
 
         message.channel.send("Canzone in pausa")
     }
-
+//COMANDO RESUME MUSICA 
     if (message.content == ".resume") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
@@ -92,7 +92,7 @@ client.on("messageCreate", message => {
 
         message.channel.send("Canzone ripresa")
     }
-
+//COMANDO QUEUE MUSICA
     if (message.content == ".queue") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
@@ -189,7 +189,7 @@ client.on("messageCreate", message => {
                 })
             })
     }
-
+//COMANDO SKIP MUSICA 
     if (message.content == ".skip") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
@@ -210,7 +210,7 @@ client.on("messageCreate", message => {
 
         message.channel.send("Canzone cambiata")
     }
-
+//COMANDO PREVIOUS MUSICA
     if (message.content == ".previous") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
@@ -231,7 +231,7 @@ client.on("messageCreate", message => {
 
         message.channel.send("Traccia precedente")
     }
-
+//COMANDO STOP MUSICA
     if (message.content == ".stop") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
@@ -252,7 +252,7 @@ client.on("messageCreate", message => {
 
         message.channel.send("Queue stoppata")
     }
-
+//COMANDO LINK
     if (message.content == ".link") {
         const linkEmbed = new Discord.MessageEmbed()
         .setColor('#b45fed')
@@ -266,29 +266,7 @@ client.on("messageCreate", message => {
         message.channel.send({ embeds: [linkEmbed] });
     
     }
-    
-    if (message.content == ".help") {
-        const helpEmbed = new Discord.MessageEmbed()
-             .setColor('DARK_GREY')
-             .setTitle('Lista Comandi')
-             .setDescription('Comandi in aggiornamento...⚙️')
-             .addField('Informazioni utente 👤❓', ".userinfo @(utente da menzionare)")
-             .addField('Play ▶️', '.play link YouTube Spotify SoundCloud')
-             .addField('Pausa ⏸️', '.pause')
-             .addField('Riprendi Traccia ⏯️', '.resume')
-             .addField('Lista Tracce 📝', '.queue')
-             .addField('Traccia Successiva ⏩', '.skip')
-             .addField('Traccia Precedente ⏮️', '.previous')
-             .addField('Stoppare Traccia ⏹️', '.stop')
-             .addField('Link Utili 🔗', '.link')
-             .addField('Ultimo video OmegaClick', '.omega')
-             .addField('Ultimo video I\'m Salvo Mod', '.salvo')
-             .addField('🚧**COMANDI DA FIXARE**🚧', '👷torneranno presto👷')
-             
-        message.channel.send({ embeds: [helpEmbed] });     
-
-    }
-
+//INFORMAZIONI SUI MEMBRI 
     if (message.content.startsWith(".userinfo")) {
     if (message.content == ".userinfo") {
         var utente = message.member;
@@ -323,7 +301,7 @@ client.on("messageCreate", message => {
         message.channel.send({ embeds: [embedUserinfo] })
     }
 })
-
+//PARTE COMANDO MUSICA
 distube.on("addSong", (queue, song) => {
     let embed = new Discord.MessageEmbed()
         .setTitle("Traccia aggiunta")
@@ -345,6 +323,7 @@ distube.on("searchNoResult", (message, query) => {
     message.channel.send("Canzone non trovata")
 })
 
+//NOTIFICA CON ORARIO IMPOSTATO 
 function oraAttuale() {
     var hour = new Date().getHours();
     var minutes = new Date().getMinutes();
@@ -361,15 +340,12 @@ function oraAttuale() {
     }
     if (hour == 21 && minutes == 30) {
         canale.send("Buonanotte ragazzuoli @everyone")
-    }
-    
-    if (hour == 11 && minutes == 0) {
-        canale.send("Buon pranzo <@625643719848230922>")
     }    
+    
 }
 setInterval(oraAttuale, 1000 * 60)
 
-
+//NOTIFICA USCITA NUOVO VIDEO OMEGACLICK
 setInterval(() => {
     ytch.getChannelVideos("UCLrgUeP56dUPUwp4vCy6RIQ", "newest").then(async response => {
         var idVideo = response.items[0]?.videoId
@@ -396,7 +372,7 @@ https://www.youtu.be/${idVideo}`)
     })
 }, 1000 * 60)
 
-
+//NOTIFICA USCITA NUOVO VIDEO IM SALVATORE MOD
 setInterval(() => {
     ytch.getChannelVideos("UCNb3JAgwBtJ0tXtJHHKXKJA", "newest").then(async response => {
         var idVideo = response.items[0]?.videoId
@@ -558,6 +534,144 @@ client.on("messageCreate", message => {
             .addField("Ping", `${client.ws.ping}ms`)
 
         message.channel.send({embeds: [embed]})
+    }
+})
+
+//COMANDO HELP REVISIONATO
+
+client.on('messageCreate', message => {
+    if (message.content == "-help") {
+        let embedCategorie = new Discord.MessageEmbed()
+        .setTitle("LISTA CATEGORIE")
+        .setDescription("clicca il bottone per la categoria desiderata")
+        .setColor("DARK_AQUA")
+        
+        let bottoneMusica = new Discord.MessageButton()
+        .setLabel("🎵 musica🎶")
+        .setStyle("PRIMARY")
+        .setCustomId("musica")
+
+        let bottoneInfo = new Discord.MessageButton()
+        .setLabel("❓info❓")
+        .setStyle("PRIMARY")
+        .setCustomId("info")
+
+        let bottoneLink = new Discord.MessageButton()
+        .setLabel("🔗link🔗")
+        .setStyle("SECONDARY")
+        .setCustomId("link")
+
+        let bottoneCanaliyt = new Discord.MessageButton()
+        .setLabel("Ultimo aggiornamento canali YouTube")
+        .setStyle("SUCCESS")
+        .setCustomId("canaliyt")
+
+        let bottoneExit = new Discord.MessageButton()
+        .setLabel("❌EXIT❌")
+        .setStyle("DANGER")
+        .setCustomId("exit")
+
+        let row1 = new Discord.MessageActionRow()
+        .addComponents(bottoneMusica)
+        .addComponents(bottoneInfo)
+        .addComponents(bottoneLink)
+        .addComponents(bottoneCanaliyt)
+
+        let rowExit = new Discord.MessageActionRow()
+        .addComponents(bottoneExit)
+
+        message.channel.send({ embeds: [embedCategorie], components: [row1, rowExit]})
+        .then(msg => {
+            const collector = msg.createMessageComponentCollector({time: 20000})
+
+            collector.on("collect", i => {
+                i.deferUpdate()
+                if (i.customId == "musica") {
+                    var embedMusica = new Discord.MessageEmbed()
+                    .setColor('DARK_GREY')
+                    .setTitle('Lista Comandi musica')
+                    .addField('Play ▶️', '.play link YouTube Spotify SoundCloud')
+                    .addField('Pausa ⏸️', '.pause')
+                    .addField('Riprendi Traccia ⏯️', '.resume')
+                    .addField('Lista Tracce 📝', '.queue')
+                    .addField('Traccia Successiva ⏩', '.skip')
+                    .addField('Traccia Precedente ⏮️', '.previous')
+                    .addField('Stoppare Traccia ⏹️', '.stop')
+
+                    msg.edit({ embeds: [embedMusica], components: null })
+
+                }
+
+                if (i.customId == "info") {
+                    var embedInfo = new Discord.MessageEmbed()
+                    .setColor('DARK_GREY')
+                    .setTitle('Lista Comandi informazioni')
+                    .addField('Informazioni utente 👤❓', ".userinfo @(utente da menzionare)")
+                    .addField('Informazioni server 📊❓', ".serverinfo")
+                    .addField('Informazioni canale 🗄️❓', ".channelinfo")
+                    .addField('🔌❓ Informazioni ping bot e ram utente 💾❓', ".ping")
+
+                    msg.edit({ embeds: [embedInfo], components: null })
+                }
+
+                if (i.customId == "link") {
+                    var embedLink = new Discord.MessageEmbed()
+                    .setColor('DARK_GREY')
+                    .setTitle('Lista Link Utili')
+                    .setDescription('Lista link in aggiornamento...⚙️')
+
+                    let bottoneLink1 = new Discord.MessageButton()
+                    .setLabel("BotKaffeina")
+                    .setStyle("LINK")
+                    .setURL("https://github.com/MrLosco/BotKaffeina")
+
+                    let bottoneLink2 = new Discord.MessageButton()
+                    .setLabel("Gruppo Telegram")
+                    .setStyle("LINK")
+                    .setURL("https://t.me/+-iJRpukkPGU4MzI0")
+
+                    let bottoneLink3 = new Discord.MessageButton()
+                    .setLabel("I\'m Salvatore Mod")
+                    .setStyle("LINK")
+                    .setURL("https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA")
+
+                    let bottoneLink4 = new Discord.MessageButton()
+                    .setLabel("OmegaClick")
+                    .setStyle("LINK")
+                    .setURL("https://www.youtube.com/c/OmegaClick6")                                        
+                
+                    let row2 = new Discord.MessageActionRow()
+                    .addComponents(bottoneLink1)
+                    .addComponents(bottoneLink2)
+                    .addComponents(bottoneLink3)
+                    .addComponents(bottoneLink4)
+                     
+                    
+                    
+                    msg.edit({ embeds: [embedLink], components: [row2, rowExit, row1] })
+                }
+
+                if (i.customId == "canaliyt") {
+                    var canaliytembed = new Discord.MessageEmbed()
+                    .setTitle("COMANDI ULTIMI AGGIORNAMENTI CANALI YOUTUBE")
+                    .setDescription("Lista canali in aggiornamento...⚙️")
+                    .addField('OmegaClick', ".omega" )
+                    .addField('I\'m Salvatore MoD', ".salvo")
+
+                    msg.edit({ embeds : [canaliytembed], components: [row1, rowExit]})
+
+                }
+                
+                if (i.customId == "exit") {
+                    var Exitembed = new Discord.MessageEmbed()
+                    .setTitle("USCITA")
+                    .setDescription(`Alla prossima!, ricordati il comando .help`)
+                    .setColor("DARK_NAVY")
+                    
+                    msg.channel.send({ embeds: [Exitembed]})
+                }
+            })
+        })     
     }
 })
 
