@@ -674,5 +674,28 @@ client.on('messageCreate', message => {
         })     
     }
 })
+//AVATAR INFO
+client.on("messageCreate", message => {
+    if (message.content.startsWith(".info")) {
+        if (message.content == ".info") {
+            var utente = message.member;
+        }
+        else {
+            var utente = message.mentions.members.first();
+        }
+        if (!utente) {
+            return message.channel.send("Membro non trovato")
+        }
+        var embedAvatar = new Discord.MessageEmbed()
+            .setTitle(utente.user.tag)
+            .setDescription("L'avatar di questo membro")
+            .setImage(utente.user.displayAvatarURL({
+                dynamic: true,
+                format: "png",
+                size: 512
+            }))
+        message.channel.send({ embeds: [embedAvatar] })
+    }
+})
 
 
