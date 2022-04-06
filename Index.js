@@ -609,6 +609,7 @@ client.on('messageCreate', message => {
                     .addField('Informazioni utente 👤❓', ".userinfo @(utente da menzionare)")
                     .addField('Informazioni server 📊❓', ".serverinfo")
                     .addField('Informazioni canale 🗄️❓', ".channelinfo")
+                    .addField('Informazioni avatar❓❓', ".guarda")
                     .addField('🔌❓ Informazioni ping bot e ram utente 💾❓', ".ping")
 
                     msg.edit({ embeds: [embedInfo], components: null })
@@ -676,8 +677,8 @@ client.on('messageCreate', message => {
 })
 //AVATAR INFO
 client.on("messageCreate", message => {
-    if (message.content.startsWith(".info")) {
-        if (message.content == ".info") {
+    if (message.content.startsWith(".guarda")) {
+        if (message.content == ".guarda") {
             var utente = message.member;
         }
         else {
