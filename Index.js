@@ -699,7 +699,7 @@ client.on("messageCreate", message => {
 })
 
 client.on("messageCreate", message => {
-if (message.content.startWith(".anon") {
+if (message.content.startWith(".anon")) {
 var args = message.content.split(/\s+/);
 var messaggio;
 messaggio = args.slice(1).join(" ");
