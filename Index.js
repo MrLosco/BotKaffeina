@@ -698,4 +698,19 @@ client.on("messageCreate", message => {
     }
 })
 
+//COMANDO SAY
+
+client.on(“messageCreate”, message => {
+if (message.content.startsWith(“!anon”)) {
+   var args = message.content.split(/\s+/);
+   var testo;
+    testo = args.slice(1).join(“ ”);
+if (!testo) { 
+   return message.channel.send(“Devi inserire un messaggio!”);
+}
+message.delete()
+message.channel.send(testo)
+ }
+})
+
 
