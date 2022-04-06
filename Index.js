@@ -698,16 +698,5 @@ client.on("messageCreate", message => {
     }
 })
 
-client.on("messageCreate", message => {
-if (message.content.startWith(".anon")) {
-var args = message.content.split(/\s+/);
-var messaggio;
-messaggio = args.slice(1).join(" ");
-if (!messaggio) {
-return message.channel.send("Devi inserire un messaggio!");
-}
-message.delete()
-message.channel.send(messaggio)
-}
-})
+
 
