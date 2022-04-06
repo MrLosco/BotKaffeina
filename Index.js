@@ -699,7 +699,7 @@ client.on("messageCreate", message => {
 })
 //COMANDO ANONIMO 
 client.on("messageCreate", message => {
-    if (message.content.startsWith("!anon")) {
+    if (message.content.startsWith(".anon")) {
         var args = message.content.split(/\s+/);
         const Manonimo = args.slice(1).join(" ");
         if (!Manonimo) {
