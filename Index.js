@@ -697,6 +697,22 @@ client.on("messageCreate", message => {
         message.channel.send({ embeds: [embedAvatar] })
     }
 })
+//COMANDO ANONIMO 
+client.on("messageCreate", message => {
+    if (message.content.startsWith("!anon")) {
+        var args = message.content.split(/\s+/);
+        const Manonimo = args.slice(1).join(" ");
+        if (!Manonimo) {
+            return message.channel.send("Inserire un messaggio");
+        }
+        message.delete()
+        var embedAnonimo = new Discord.MessageEmbed()
+            .setTitle("Anonimo")
+            .setDescription(Manonimo)
+
+        message.channel.send({embeds: [embedAnonimo]})
+    }
+})
 
 
 
