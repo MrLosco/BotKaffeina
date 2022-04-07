@@ -532,6 +532,7 @@ client.on("messageCreate", message => {
             .setTitle("Ping del bot")
             .setDescription("Latenza del bot")
             .addField("Ping", `${client.ws.ping}ms`)
+            .addField(":floppy_disk: Ram", `${(process. memoryUsage(). heapUsed / 1024 / 1024). toFixed(2)} MB`, true)
 
         message.channel.send({embeds: [embed]})
     }
