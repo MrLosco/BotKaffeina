@@ -714,6 +714,50 @@ client.on("messageCreate", message => {
         message.channel.send({embeds: [embedAnonimo]})
     }
 })
+//COMANDO NOTIFICA, FIX E UPDATE MANUALE IN CANALE PRESELEZIONATO
+client.on("messageCreate", message => {
+    if (message.content.startsWith(".notifica")) {
+        var args = message.content.split(/\s+/);
+        const Mmnotifica = args.slice(1).join(" ");
+        if (!Mmnotifica) {
+            return message.channel.send("Inserire un messaggio");
+        }
+        message.delete()
+        var embedMnotifica = new Discord.MessageEmbed()
+            .setTitle("__Notifica Bot__")
+            .setDescription(Mmnotifica)
+        var canale = client.channels.cache.get("949783943304073299")
+        canale.send({embeds: [embedMnotifica]})
+    };
 
+    if (message.content.startsWith(".fix")) {
+        var args = message.content.split(/\s+/);
+        const mFix = args.slice(1).join(" ");
+        if (!mFix) {
+            return message.channel.send("Inserire un messaggio");
+        }
+        message.delete()
+        var embedFix= new Discord.MessageEmbed()
+            .setTitle("__Lista Fix__")
+            .setDescription("🛠️" + " " + " " + mFix + " " + "🛠️")
+        var canale = client.channels.cache.get("949783943304073299")
+        canale.send({embeds: [embedFix]})
+    };
+
+    if (message.content.startsWith(".update")) {
+        var args = message.content.split(/\s+/);
+        const mUpdate = args.slice(1).join(" ");
+        if (!mUpdate) {
+            return message.channel.send("Inserire un messaggio");
+        }
+        message.delete()
+        var embedUpdate= new Discord.MessageEmbed()
+            .setTitle("__Aggiornamenti Bot__")
+            .setDescription("⚙️" + " " + " " + mUpdate + " " + "⚙️" )
+        var canale = client.channels.cache.get("949783943304073299")
+        canale.send({embeds: [embedUpdate]})
+    }
+    
+})
 
 
