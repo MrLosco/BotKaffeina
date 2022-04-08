@@ -553,7 +553,7 @@ client.on('messageCreate', message => {
         .setCustomId("musica")
 
         let bottoneInfo = new Discord.MessageButton()
-        .setLabel("❓info❓")
+        .setLabel("❓info comandi❓")
         .setStyle("PRIMARY")
         .setCustomId("info")
 
@@ -583,7 +583,7 @@ client.on('messageCreate', message => {
 
         message.channel.send({ embeds: [embedCategorie], components: [row1, rowExit]})
         .then(msg => {
-            const collector = msg.createMessageComponentCollector({time: 20000})
+            const collector = msg.createMessageComponentCollector()
 
             collector.on("collect", i => {
                 i.deferUpdate()
@@ -606,12 +606,13 @@ client.on('messageCreate', message => {
                 if (i.customId == "info") {
                     var embedInfo = new Discord.MessageEmbed()
                     .setColor('DARK_GREY')
-                    .setTitle('Lista Comandi informazioni')
+                    .setTitle('Lista Comandi')
                     .addField('Informazioni utente 👤❓', ".userinfo @(utente da menzionare)")
                     .addField('Informazioni server 📊❓', ".serverinfo")
                     .addField('Informazioni canale 🗄️❓', ".channelinfo")
                     .addField('Informazioni avatar❓❓', ".guarda")
                     .addField('🔌❓ Informazioni ping bot e ram utente 💾❓', ".ping")
+                    .addField('Lista Argomenti', '.argomenti')
 
                     msg.edit({ embeds: [embedInfo], components: null })
                 }
@@ -759,6 +760,73 @@ client.on("messageCreate", message => {
         canale.send({embeds: [embedUpdate]})
     }
     
+})
+//DROP MENU'
+client.on("messageCreate", async message => {
+    if (message.content == ".argomenti") {
+        const rowArgomenti = new Discord.MessageActionRow()
+        .addComponents(
+            new Discord.MessageSelectMenu()
+            .setCustomId('argomenti')
+            .setPlaceholder('Seleziona l\'argomento che desideri')
+            .setMinValues(1)
+            .setMaxValues(1)
+            .addOptions([
+                {
+                    label: 'Ufo e Astrologia',
+                    description: 'tutto su Ufo e astrologia',
+                    value: 'ufo',
+                },
+                {
+                    label: 'Tecnologia',
+                    description: 'Informazioni utili tecnologia',
+                    value: 'tecno',
+                },
+            ])
+            
+            
+        );
+        const embedArgomenti = new Discord.MessageEmbed()
+        .setColor('BLUE')
+        .setTitle('__**LISTA ARGOMENTI**__')
+        .setDescription('*Tutti gli argomenti trattati*')
+
+        message.channel.send({ embeds: [embedArgomenti], components: [rowArgomenti] })
+        .then(msg => {
+            const collector = msg.createMessageComponentCollector()
+
+            collector.on("collect", i => {
+                i.deferUpdate()
+                if (i.isSelectMenu()) {
+                    let choice = i.values[0]
+                    const member =i.member
+                    if (choice == 'ufo') {
+                        var embedUfo = new Discord.MessageEmbed()
+                        .setColor('DARKER_GREY')
+                        .setTitle('🛸***Ufo e Astrologia***🔭⭐')
+                        .addField('🛰️Canale YouTube NASA🛰️', 'https://youtube.com/c/NASA')
+                        .addField('Canale YouTube UFO Sightings Daily', 'https://youtube.com/c/ScottWaring')
+                        .addField('Canale YouTube OmegaClick', 'https://www.youtube.com/c/OmegaClick6')
+                        .addField('Canale Instagram Cavaliere Mascherato', 'https://instagram.com/lucioo.ferrara?igshid=YmMyMTA2M2Y=')
+                        msg.edit({ embeds: [embedUfo] })
+                    }
+                    if (choice == 'tecno') {
+                        var embedTecnologia = new Discord.MessageEmbed()
+                        .setColor('DARK_AQUA')
+                        .setTitle('🤖***Tecnologia***💻')
+                        .addField('Canale YouTube I\'m Salvatore MoD', 'https://www.youtube.com/channel/UCNb3JAgwBtJ0tXtJHHKXKJA')
+                        .addField('Crea la tua mappa, direttamente con il tuo pc in formato "digitale" utilizzando questa app', 'https://www.xmind.net/')
+                        .addField('Tema sulla Nascita WWW, world wide web & Tecnologie di Sviluppo Html, CSS, Javascript', 'https://amslaurea.unibo.it/4067/1/tessarini_jennifer_tesi.pdf')
+                        .addField('La privacy e la sicurezza informatica è caratterizzata da un processo non da una singola soluzione. Approfondimenti qui', 'https://www.whonix.org/wiki/FAQ')
+                        .addField('Approfondimento video', 'https://youtu.be/wX75Z-4MEoM')
+                        msg.edit({ embeds: [embedTecnologia] })
+                    }
+                }
+            })
+        })
+        }
+
+        
 })
 
 
