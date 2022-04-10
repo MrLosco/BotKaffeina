@@ -537,7 +537,7 @@ client.on("messageCreate", message => {
         message.channel.send({embeds: [embed]})
     }
 })
-
+/*
 //COMANDO HELP REVISIONATO
 
 client.on('messageCreate', message => {
@@ -677,6 +677,7 @@ client.on('messageCreate', message => {
         })     
     }
 })
+*/
 //AVATAR INFO
 client.on("messageCreate", message => {
     if (message.content.startsWith(".guarda")) {
@@ -820,6 +821,93 @@ client.on("messageCreate", async message => {
                         .addField('La privacy e la sicurezza informatica è caratterizzata da un processo non da una singola soluzione. Approfondimenti qui', 'https://www.whonix.org/wiki/FAQ')
                         .addField('Approfondimento video', 'https://youtu.be/wX75Z-4MEoM')
                         msg.edit({ embeds: [embedTecnologia] })
+                    }
+                }
+            })
+        })
+        }
+
+        
+})
+
+//COMANDO HELP 3.0
+client.on("messageCreate", async message => {
+    if (message.content == ".help") {
+        const rowHelp = new Discord.MessageActionRow()
+        .addComponents(
+            new Discord.MessageSelectMenu()
+            .setCustomId('LiìISTA COMANI PER CATEGORIA')
+            .setPlaceholder('Seleziona i comandi che desideri che desideri')
+            .setMinValues(1)
+            .setMaxValues(1)
+            .addOptions([
+                {
+                    label: '🎵 musica🎶',
+                    description: 'Comandi attuali musica',
+                    value: 'musica',
+                },
+                {
+                    label: '❓Informazioni e utilità❓',
+                    description: 'Comandi informativi e utili',
+                    value: 'info',
+                },
+                {
+                    label: '🔗Link e canali YouTube🔗',
+                    description: 'Link utili e comandi per canali YouTube',
+                    value: 'link'
+                }
+            ])
+            
+            
+        );
+        const embedHelp = new Discord.MessageEmbed()
+        .setColor('#409')
+        .setTitle('__**LISTA COMANDI PER CATEGORIA**__')
+        .setDescription('*Tutti i comandi del bot*')
+
+        message.channel.send({ embeds: [embedHelp], components: [rowHelp] })
+        .then(msg => {
+            const collector = msg.createMessageComponentCollector()
+
+            collector.on("collect", i => {
+                i.deferUpdate()
+                if (i.isSelectMenu()) {
+                    let choice = i.values[0]
+                    const member =i.member
+                    if (choice == 'musica') {
+                        var embedMusica = new Discord.MessageEmbed()
+                        .setColor('#e85d')
+                        .setTitle('Lista Comandi musica')
+                        .addField('Play ▶️', '.play link YouTube Spotify SoundCloud')
+                        .addField('Pausa ⏸️', '.pause')
+                        .addField('Riprendi Traccia ⏯️', '.resume')
+                        .addField('Lista Tracce 📝', '.queue')
+                        .addField('Traccia Successiva ⏩', '.skip')
+                        .addField('Traccia Precedente ⏮️', '.previous')
+                        .addField('Stoppare Traccia ⏹️', '.stop')
+                        msg.edit({ embeds: [embedMusica] })
+                    }
+                    if (choice == 'info') {
+                        var embedInfo = new Discord.MessageEmbed()
+                        .setColor('DARK_GREY')
+                        .setTitle('Lista Comandi informativi e utili')
+                        .addField('Informazioni utente 👤❓', ".userinfo @(utente da menzionare)")
+                        .addField('Informazioni server 📊❓', ".serverinfo")
+                        .addField('Informazioni canale 🗄️❓', ".channelinfo")
+                        .addField('Informazioni avatar❓❓', ".guarda")
+                        .addField('🔌❓ Informazioni ping bot e ram utente 💾❓', ".ping")
+                        .addField('Lista argomenti', '.argomenti')
+                        msg.edit({ embeds: [embedInfo] })
+                    }
+                    if (choice == 'link') {
+                        var embedLink = new Discord.MessageEmbed()
+                        .setColor('#44fd')
+                        .setTitle('Lista link e comandi per canali YouTube ')
+                        .addField('BotKaffeina', "https://github.com/MrLosco/BotKaffeina")
+                        .addField('Gruppo Telegram', "https://t.me/+-iJRpukkPGU4MzI0")
+                        .addField('Ultimo video OmegaClick', ".omega")
+                        .addField('Ultimo video I\'m Salvatore MoD', ".salvo")
+                        msg.edit({ embeds: [embedLink] })
                     }
                 }
             })
