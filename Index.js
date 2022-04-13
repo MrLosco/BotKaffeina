@@ -27,6 +27,7 @@ const distube = new DisTube(client, {
 //COMANDO PLAY MUSICA
 client.on("messageCreate", message => {
     if (message.content.startsWith(".play")) {
+        if(message.channel.id != "951428104633589780") return message.channel.send("devi essere nel canale Musica per digitare il comando")
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -52,6 +53,7 @@ client.on("messageCreate", message => {
     }
 //COMANDO PAUSE MUSICA
     if (message.content == ".pause") {
+        if(message.channel.id != "951428104633589780") return message.channel.send("devi essere nel canale Musica per digitare il comando")
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -73,6 +75,7 @@ client.on("messageCreate", message => {
     }
 //COMANDO RESUME MUSICA 
     if (message.content == ".resume") {
+        if(message.channel.id != "951428104633589780") return message.channel.send("devi essere nel canale Musica per digitare il comando")
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -94,6 +97,7 @@ client.on("messageCreate", message => {
     }
 //COMANDO QUEUE MUSICA
     if (message.content == ".queue") {
+        if(message.channel.id != "951428104633589780") return message.channel.send("devi essere nel canale Musica per digitare il comando")
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -191,6 +195,7 @@ client.on("messageCreate", message => {
     }
 //COMANDO SKIP MUSICA 
     if (message.content == ".skip") {
+        if(message.channel.id != "951428104633589780") return message.channel.send("devi essere nel canale Musica per digitare il comando")
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -212,6 +217,7 @@ client.on("messageCreate", message => {
     }
 //COMANDO PREVIOUS MUSICA
     if (message.content == ".previous") {
+        if(message.channel.id != "951428104633589780") return message.channel.send("devi essere nel canale Musica per digitare il comando")
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -233,6 +239,7 @@ client.on("messageCreate", message => {
     }
 //COMANDO STOP MUSICA
     if (message.content == ".stop") {
+        if(message.channel.id != "951428104633589780") return message.channel.send("devi essere nel canale Musica per digitare il comando")
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
