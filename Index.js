@@ -350,7 +350,7 @@ function oraAttuale() {
     }    
     
 }
-setInterval(oraAttuale, 1000 * 60)
+setInterval(oraAttuale, 1000 * 10)
 
 //NOTIFICA USCITA NUOVO VIDEO OMEGACLICK
 setInterval(() => {
@@ -404,7 +404,7 @@ https://www.youtu.be/${idVideo}`)
                 }
             })
     })
-}, 1000 * 60)
+}, 1000 * 10)
 
 //MESSAGGIO DI BENVENUTO 
 
