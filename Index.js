@@ -351,7 +351,7 @@ function oraAttuale() {
     
 }
 setInterval(oraAttuale, 1000 * 60)
-/*
+
 //NOTIFICA USCITA NUOVO VIDEO OMEGACLICK
 setInterval(() => {
     ytch.getChannelVideos("UCLrgUeP56dUPUwp4vCy6RIQ", "newest").then(async response => {
@@ -405,7 +405,7 @@ https://www.youtu.be/${idVideo}`)
             })
     })
 }, 1000 * 60)
-*/
+
 //MESSAGGIO DI BENVENUTO 
 
 client.on("guildMemberAdd", member => {
