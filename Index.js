@@ -413,6 +413,11 @@ client.on("guildMemberAdd", member => {
     var embedCiao = new Discord.MessageEmbed()
         .setTitle("BENVENUTO")
         .setDescription(`Ciao ${member.toString()}, benvenuto nel ${member.guild.name}. Sei il **${member.guild.memberCount}Â° Membro**`)
+        .setThumbnail(member.displayAvatarURL())
+        .addField("User id",member.user.id, true)
+        .addField("Stato", member.presence ? member.presence.status : "offline", true)
+        .addField("è un bot?", member.user.bot ? "Yes" : "No", true)
+        .addField("Account creato", member.user.createdAt.toDateString(), true)
 
     client.channels.cache.get("949783943304073296").send({embeds: [embedCiao]});  
 })
