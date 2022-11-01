@@ -358,7 +358,7 @@ setInterval(() => {
         var idVideo = response.items[0]?.videoId
         if (!idVideo) return
 
-        client.channels.cache.get("959168230965006356").messages.fetch()
+        client.channels.cache.get("1037048883395694652").messages.fetch()
             .then(messages => {
                 var giaMandato = false;
                 messages.forEach(msg => {
@@ -366,7 +366,7 @@ setInterval(() => {
                 });
 
                 if (!giaMandato) {
-                    client.channels.cache.get("959168230965006356").send(`-------------📽️ __**NUOVO VIDEO**__ 📽️ -------------
+                    client.channels.cache.get("1037048883395694652").send(`-------------📽️ __**NUOVO VIDEO**__ 📽️ -------------
 
 
 @everyone, è appena uscito un video su **${response.items[0].author}**
